@@ -21,7 +21,7 @@ module LoginHelper
   end
 
   def user_login
-    @mindy = User.create(
+    @mindy = User.find_or_create_by(
       name: "Mindy",
       password: "password",
       happiness: 3,

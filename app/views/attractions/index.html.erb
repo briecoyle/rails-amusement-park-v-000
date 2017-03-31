@@ -1,0 +1,13 @@
+<h1>Attraction Index Page</h1>
+
+<% @attractions.each do |attraction| %>
+  <% if current_user.admin == false %>
+    <%= link_to "Go on #{attraction.name}", attraction_path(attraction) %>
+  <% elsif current_user.admin == true %>
+    <%= link_to "Show #{attraction.name}", attraction_path(attraction) %>
+  <% end %>
+<% end %>
+
+<% if current_user.admin == true %>
+  <%= link_to "New Attraction", new_attraction_path %>
+<% end %>
